@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="search">
+    <input
+      class="search__input"
+      type="text"
+      placeholder="Search..."
+      #searchInput
+      (input)="search(searchInput)"
+    >
+    <button type="button" (click)="sortProducts()" class="search-filter" [ngClass]="{'search-filter--active': isSortDesc}">
+      <svg class="search-filter__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M267.998 125.671L177.997 5.669c-5.654-7.559-18.34-7.559-23.994 0L64.002 125.671c-7.399 9.844-.355 23.994 11.997 23.994H121v285.003c0 8.291 6.709 15 15 15h60c8.291 0 14.8-6.709 14.8-15V149.665H256c12.363 0 19.389-14.16 11.998-23.994zM436.003 362.005h-45.201V77.001c0-8.291-6.509-15-14.8-15h-60.001c-8.291 0-15 6.709-15 15v285.003H256c-12.353 0-19.396 14.15-11.997 23.994L334.005 506c5.989 8.006 18.014 7.994 23.994 0L448 385.999c7.391-9.834.365-23.994-11.997-23.994z"/></svg>
+    </button>
+  </div>
+  <app-product-list
+          [products] = favoriteProducts
+          (changeFavoriteProduct)="removeFavoriteProduct($event)"
+  ></app-product-list>
+  <app-product-list
+          [products] = filteredProducts
+          (changeFavoriteProduct)="addFavoriteProduct($event)"
+  ></app-product-list>
+</div>

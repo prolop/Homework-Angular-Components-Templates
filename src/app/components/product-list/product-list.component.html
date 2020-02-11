@@ -1,0 +1,16 @@
+<div class="products">
+  <div class="product" *ngFor="let product of products; let i = index;">
+    <img src="{{product.img}}" alt="{{product.Title}}" class="product__image">
+    <div class="product__info">
+      <h2 class="product__title">{{product.Title}}</h2>
+      <p class="product__rating">Rating: {{product.Rating}}</p>
+      <p class="product__description">{{product.Description}}</p>
+      <div class="product-favorite">
+        <button type="button" class="product-favorite__btn" (click)="changeFavorite(product)">
+          {{product.Favorite ? 'Remove from favorite' : 'Add to favorite'}}
+        </button>
+      </div>
+      <a href="{{product.Url}}" class="product__link" target="_blank">Go to product page</a>
+    </div>
+  </div>
+</div>
